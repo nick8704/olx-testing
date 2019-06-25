@@ -1,11 +1,13 @@
 import org.testng.annotations.Test;
 
+import static helpers.WebDriverHelper.getImplicitWait;
+
 public class CheckingFilterFields extends BaseTest {
 
     @Test
     public void checkingDefaultValuesInFilterFields() {
         logger.info("TEST PASSED");
-        System.out.println("ttt");
+        System.out.println(getImplicitWait());
     }
 
     @Test
