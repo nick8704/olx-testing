@@ -11,6 +11,7 @@ public class WebDriverHelper {
 
     private final int DEFAULT_WAIT = 10;
 
+    private static WebDriver driver;
     private int implicitWait;
     private int explicitWait;
 
@@ -20,7 +21,10 @@ public class WebDriverHelper {
     }
 
     public WebDriver getChromeDriver() {
-        return new ChromeDriver();
+        if(driver == null) {
+            driver = new ChromeDriver();
+        }
+        return driver;
     }
 
     private void initializeWaitsFromPropertiesFile() {
