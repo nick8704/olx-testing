@@ -9,10 +9,10 @@ import java.util.Properties;
 
 public class WebDriverHelper {
 
-    private static final int DEFAULT_WAIT = 10;
+    private final int DEFAULT_WAIT = 10;
 
-    private static int implicitWait;
-    private static int explicitWait;
+    private int implicitWait;
+    private int explicitWait;
 
     public WebDriverHelper() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver75");
@@ -35,7 +35,7 @@ public class WebDriverHelper {
         }
     }
 
-    private static int convertingStringToInt(String value) {
+    private int convertingStringToInt(String value) {
         int result;
         try {
             result = Integer.parseInt(value);
@@ -45,16 +45,16 @@ public class WebDriverHelper {
         return result;
     }
 
-    private static void setDefaultWait() {
+    private void setDefaultWait() {
         implicitWait = DEFAULT_WAIT;
         explicitWait= DEFAULT_WAIT;
     }
 
-    public static int getImplicitWait() {
+    public int getImplicitWait() {
         return implicitWait;
     }
 
-    public static int getExplicitWait() {
+    public int getExplicitWait() {
         return explicitWait;
     }
 

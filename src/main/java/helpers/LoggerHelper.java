@@ -1,13 +1,14 @@
 package helpers;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.logging.*;
 
 public class LoggerHelper {
 
-    private static Logger logger = Logger.getLogger(LoggerHelper.class.getName());
+    private Logger logger = Logger.getLogger(LoggerHelper.class.getName());
 
-    public static Logger getLogger() {
+    public Logger getLogger() {
         try {
             setUpLogger();
         } catch (IOException e) {
@@ -16,9 +17,9 @@ public class LoggerHelper {
         return logger;
     }
 
-    private static void setUpLogger() throws IOException {
+    private void setUpLogger() throws IOException {
         //file is in user home directory
-        Handler handler = new FileHandler("%h/olxLog.log");
+        Handler handler = new FileHandler("%h/olxLog.log", true);
         handler.setFormatter(new LoggerFormatter());
         logger.setUseParentHandlers(false);
         logger.addHandler(handler);
@@ -28,7 +29,9 @@ public class LoggerHelper {
 
         @Override
         public String format(LogRecord record) {
-            return record.getSourceClassName()
+            return new Date(record.getMillis())
+                    + " "
+                    + record.getSourceClassName()
                     + " -> "
                     + record.getSourceMethodName()
                     + "; "
