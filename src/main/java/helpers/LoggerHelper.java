@@ -18,7 +18,7 @@ public class LoggerHelper {
     }
 
     private void setUpLogger() throws IOException {
-        //file is in user home directory
+        //file will be created automatically in a user home directory
         Handler handler = new FileHandler("%h/olxLog.log", true);
         handler.setFormatter(new LoggerFormatter());
         logger.setUseParentHandlers(false);

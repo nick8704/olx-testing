@@ -1,5 +1,4 @@
 import contexts.CarsPageContext;
-import helpers.WebDriverHelper;
 import org.testng.annotations.Test;
 
 public class CheckingFilterFields extends BaseTest {
@@ -8,9 +7,9 @@ public class CheckingFilterFields extends BaseTest {
 
     @Test
     public void checkingDefaultValuesInFilterFields() {
-//        carsPageContext.verifySelectBrandValueIsDefault();
+        carsPageContext.verifySelectBrandValueIsDefault();
         logger.info("TEST PASSED");
-        System.out.println(new WebDriverHelper().getImplicitWait());
+//        System.out.println(new WebDriverHelper().getImplicitWait());
     }
 
 }

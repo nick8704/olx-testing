@@ -17,7 +17,7 @@ public class BaseTest {
     @BeforeSuite
     public void setWebDriver() {
         logger = new LoggerHelper().getLogger();
-        driver = new WebDriverHelper().getChromeDriver();
+        driver = WebDriverHelper.getChromeDriver();
         driver.manage().window().setSize(new Dimension(500, 500));
     }
 

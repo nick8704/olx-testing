@@ -9,25 +9,25 @@ import java.util.Properties;
 
 public class WebDriverHelper {
 
-    private final int DEFAULT_WAIT = 10;
+    private static final int DEFAULT_WAIT = 10;
 
     private static WebDriver driver;
-    private int implicitWait;
-    private int explicitWait;
+    private static int implicitWait;
+    private static int explicitWait;
 
-    public WebDriverHelper() {
+    static  {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver75");
         initializeWaitsFromPropertiesFile();
     }
 
-    public WebDriver getChromeDriver() {
+    public static WebDriver getChromeDriver() {
         if(driver == null) {
             driver = new ChromeDriver();
         }
         return driver;
     }
 
-    private void initializeWaitsFromPropertiesFile() {
+    private static void initializeWaitsFromPropertiesFile() {
         Properties properties = new Properties();
         try {
             FileInputStream inputStream = new FileInputStream("wait.properties");
@@ -39,7 +39,7 @@ public class WebDriverHelper {
         }
     }
 
-    private int convertingStringToInt(String value) {
+    private static int convertingStringToInt(String value) {
         int result;
         try {
             result = Integer.parseInt(value);
@@ -49,16 +49,16 @@ public class WebDriverHelper {
         return result;
     }
 
-    private void setDefaultWait() {
+    private static void setDefaultWait() {
         implicitWait = DEFAULT_WAIT;
         explicitWait= DEFAULT_WAIT;
     }
 
-    public int getImplicitWait() {
+    public static int getImplicitWait() {
         return implicitWait;
     }
 
-    public int getExplicitWait() {
+    public static int getExplicitWait() {
         return explicitWait;
     }
 
