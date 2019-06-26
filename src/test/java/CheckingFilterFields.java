@@ -7,9 +7,27 @@ public class CheckingFilterFields extends BaseTest {
 
     @Test
     public void checkingDefaultValuesInFilterFields() {
-        carsPageContext.verifySelectBrandValueIsDefault();
+        carsPageContext
+                .loadCarsPage()
+                .verifySelectBrandValueIsDefault()
+                .verifySelectDistrictValueIsDefault()
+                .verifySelectTypeValueIsDefault()
+                .verifySelectFuelValueIsDefault()
+                .verifyInputPriceMinValueIsDefault()
+                .verifyInputPriceMaxValueIsDefault()
+                .verifySelectColorValueIsDefault()
+                .verifySelectTransmissionValueIsDefault()
+                .verifyInputYearMinValueIsDefault()
+                .verifyInputYearMaxValueIsDefault()
+                .verifySelectConditionValueIsDefault()
+                .verifySelectOptionsValueIsDefault()
+                .verifyInputMilageMinValueIsDefault()
+                .verifyInputMilageMaxValueIsDefault()
+                .verifySelectCustomsClearedValueIsDefault()
+                .verifyInputEngineMinValueIsDefault()
+                .verifyInputEngineMaxValueIsDefault();
+
         logger.info("TEST PASSED");
-//        System.out.println(new WebDriverHelper().getImplicitWait());
     }
 
 }
