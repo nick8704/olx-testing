@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="olx.ua testing" verbose="1">
+
+    <test name="olxTest">
+
+        <classes>
+            <class name="CheckingFilterFields" />
+        </classes>
+
+    </test>
+
+</suite>
