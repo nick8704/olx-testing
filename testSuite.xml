@@ -2,6 +2,10 @@
 
 <suite name="olx.ua testing" verbose="1">
 
+    <listeners>
+        <listener class-name="ua.olx.helpers.LoggerHelper" />
+    </listeners>
+
     <test name="olxTest">
 
         <classes>

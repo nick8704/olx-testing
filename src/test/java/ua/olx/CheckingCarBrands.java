@@ -16,14 +16,14 @@ public class CheckingCarBrands extends BaseTest {
     @Test
     public void checkingCarBrandsAreExistingInTheList() {
         carsPageContext
-                .clickButtonAcceptCoockies()
-                .expandSelectBrand()
-                .verifyCarBrandIsExistInTheList(validBrands.get(0), true)
-                .verifyCarBrandIsExistInTheList(validBrands.get(1), true)
-                .verifyCarBrandIsExistInTheList(validBrands.get(2), true)
-                .verifyCarBrandIsExistInTheList(invalidBrands.get(0), false)
-                .verifyCarBrandIsExistInTheList(invalidBrands.get(1), false)
-                .verifyCarBrandIsExistInTheList(invalidBrands.get(2), false);
+            .clickButtonAcceptCoockies()
+            .expandSelectBrand()
+            .verifyCarBrandIsExistInTheList(validBrands.get(0), true)
+            .verifyCarBrandIsExistInTheList(validBrands.get(1), true)
+            .verifyCarBrandIsExistInTheList(validBrands.get(2), true)
+            .verifyCarBrandIsExistInTheList(invalidBrands.get(0), false)
+            .verifyCarBrandIsExistInTheList(invalidBrands.get(1), false)
+            .verifyCarBrandIsExistInTheList(invalidBrands.get(2), false);
     }
 
 }
