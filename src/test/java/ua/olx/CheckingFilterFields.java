@@ -1,4 +1,6 @@
-import contexts.CarsPageContext;
+package ua.olx;
+
+import ua.olx.contexts.CarsPageContext;
 import org.testng.annotations.Test;
 
 public class CheckingFilterFields extends BaseTest {
@@ -8,7 +10,7 @@ public class CheckingFilterFields extends BaseTest {
     @Test
     public void checkingDefaultValuesInFilterFields() {
         carsPageContext
-                .loadCarsPage()
+                .clickButtonAcceptCoockies()
                 .verifySelectBrandValueIsDefault()
                 .verifySelectDistrictValueIsDefault()
                 .verifySelectTypeValueIsDefault()

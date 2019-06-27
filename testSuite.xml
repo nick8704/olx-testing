@@ -5,7 +5,8 @@
     <test name="olxTest">
 
         <classes>
-            <class name="CheckingFilterFields" />
+            <class name="ua.olx.CheckingFilterFields"/>
+            <class name="ua.olx.CheckingCarBrands"/>
         </classes>
 
     </test>

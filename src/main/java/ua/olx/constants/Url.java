@@ -1,4 +1,4 @@
-package constants;
+package ua.olx.constants;
 
 public class Url {
 

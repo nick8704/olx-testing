@@ -1,18 +1,29 @@
-package contexts;
+package ua.olx.contexts;
 
 import org.testng.Assert;
-import pages.CarsPage;
+import ua.olx.pages.CarsPage;
 
-import static constants.DefaultFieldsValues.*;
+import static ua.olx.constants.DefaultFieldsValues.*;
 
 public class CarsPageContext {
 
     CarsPage carsPage = new CarsPage();
 
-    public CarsPageContext loadCarsPage() {
+    /**
+     * =======================================================================================================
+     * ACTIONS
+     * =======================================================================================================
+     */
+
+    public CarsPageContext clickButtonAcceptCoockies() {
         if(carsPage.buttonAcceptCoockies.isDisplayed()) {
             carsPage.buttonAcceptCoockies.click();
         }
+        return this;
+    }
+
+    public CarsPageContext expandSelectBrand() {
+        carsPage.selectBrand.click();
         return this;
     }
 
@@ -139,5 +150,27 @@ public class CarsPageContext {
         String expected = ENGINE_MAX;
         Assert.assertEquals(actual, expected);
         return this;
+    }
+
+    public CarsPageContext verifyCarBrandIsExistInTheList(String brand, boolean expected) {
+        boolean actual = false;
+        for (int i = 0; i < carsPage.brandsList.size(); i++) {
+            if (getBrandName(carsPage.brandsList.get(i).getText()).equals(brand)) {
+                actual = true;
+                break;
+            }
+        }
+        Assert.assertEquals(actual, expected);
+        return this;
+    }
+
+    /**
+     * =======================================================================================================
+     * SERVICE METHODS
+     * =======================================================================================================
+     */
+
+    private String getBrandName(String brandName) {
+        return brandName.split("\n")[0];
     }
 }

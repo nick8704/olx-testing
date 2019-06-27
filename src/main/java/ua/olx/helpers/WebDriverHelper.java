@@ -1,4 +1,4 @@
-package helpers;
+package ua.olx.helpers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,7 +9,7 @@ import java.util.Properties;
 
 public class WebDriverHelper {
 
-    private static final int DEFAULT_WAIT = 10;
+    private static final int DEFAULT_WAIT = 15;
 
     private static WebDriver driver;
     private static int implicitWait;
@@ -21,7 +21,7 @@ public class WebDriverHelper {
     }
 
     public static WebDriver getChromeDriver() {
-        if(driver == null) {
+        if (driver == null) {
             driver = new ChromeDriver();
         }
         return driver;

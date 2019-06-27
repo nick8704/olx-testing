@@ -1,15 +1,20 @@
-package pages;
+package ua.olx.pages;
 
-import helpers.WebDriverHelper;
+import org.openqa.selenium.WebDriver;
+import ua.olx.helpers.WebDriverHelper;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
+import java.util.List;
+
 public class CarsPage {
 
+    WebDriver driver = WebDriverHelper.getChromeDriver();
+
     public CarsPage() {
-        PageFactory.initElements(new AjaxElementLocatorFactory(WebDriverHelper.getChromeDriver(), WebDriverHelper.getImplicitWait()), this);
+        PageFactory.initElements(new AjaxElementLocatorFactory(driver, WebDriverHelper.getImplicitWait()), this);
     }
 
     @FindBy(xpath = "//div[@id='cookiesBar']/button")
@@ -65,4 +70,7 @@ public class CarsPage {
 
     @FindBy(xpath = "//fieldset//span[@data-default-label='Объем двигателя до']")
     public WebElement inputEngineMax;
+
+    @FindBy(xpath = "//*[contains(@class, 'small suggestinput')]/li/a")
+    public List<WebElement> brandsList;
 }

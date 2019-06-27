@@ -1,5 +1,7 @@
-import helpers.LoggerHelper;
-import helpers.WebDriverHelper;
+package ua.olx;
+
+import ua.olx.helpers.LoggerHelper;
+import ua.olx.helpers.WebDriverHelper;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeSuite;
@@ -7,7 +9,7 @@ import org.testng.annotations.BeforeTest;
 
 import java.util.logging.Logger;
 
-import static constants.Url.URL;
+import static ua.olx.constants.Url.URL;
 
 public class BaseTest {
 
@@ -16,7 +18,7 @@ public class BaseTest {
 
     @BeforeSuite
     public void setWebDriver() {
-        logger = new LoggerHelper().getLogger();
+        logger = LoggerHelper.getLogger();
         driver = WebDriverHelper.getChromeDriver();
         driver.manage().window().setSize(new Dimension(500, 500));
     }
