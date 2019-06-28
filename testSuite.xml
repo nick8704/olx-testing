@@ -13,6 +13,7 @@
             <class name="ua.olx.CheckingCarBrands"/>
             <class name="ua.olx.ValidatePriceFields"/>
             <class name="ua.olx.ValidateMilageFilter"/>
+            <class name="ua.olx.ValidatePriceFilter"/>
         </classes>
 
     </test>

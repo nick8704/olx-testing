@@ -102,8 +102,8 @@ public class CarsPage {
     @FindBy(xpath = "//tr//div[@class='space rel']//a")
     public List<WebElement> searchResultCarsModelList;
 
-    @FindBy(xpath = "//div[contains(@class, 'wrapper clr rel')]")
-    public WebElement wrapper;
+    @FindBy(xpath = "//tr//p[@class='price']")
+    public List<WebElement> searchResultCarsPriceList;
 
     public WebElement getMilageMinSelectItem(String value) {
         WebElement milageSelectItem = driver.findElement(By.xpath("(//fieldset//ul[@id='param-grid-4']//a[@data-value='" + value + "'])[1]"));

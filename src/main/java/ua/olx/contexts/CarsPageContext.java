@@ -229,6 +229,19 @@ public class CarsPageContext {
         return this;
     }
 
+    public CarsPageContext verifySearchResultListContainsOnlyValidPrices(int priceMin, int priceMax) {
+        boolean result = true;
+        for (int i = 0; i < carsPage.searchResultCarsPriceList.size(); i++) {
+            int carPrice = getPrice(carsPage.searchResultCarsPriceList.get(i).getText());
+            if(!verifyPriceIsValid(priceMin, priceMax, carPrice)) {
+                result = false;
+                break;
+            }
+        }
+        Assert.assertTrue(result, "Verify that all cars in search result list has a valid price:");
+        return this;
+    }
+
     public CarsPageContext verifyCarBrandIsExistInTheList(String brand, boolean expected) {
         boolean actual = false;
         for (int i = 0; i < carsPage.brandsList.size(); i++) {
@@ -250,4 +263,13 @@ public class CarsPageContext {
     private String getBrandName(String brandName) {
         return brandName.split("\n")[0];
     }
+
+    private int getPrice(String price) {
+        return Integer.parseInt(price.replace(" грн.", "").replaceAll(" ", ""));
+    }
+
+    private boolean verifyPriceIsValid(int priceMin, int priceMax, int value) {
+        return (value >= priceMin) && (value <= priceMax);
+    }
+
 }

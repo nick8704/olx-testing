@@ -14,7 +14,7 @@ public class ValidateMilageFilter extends BaseTest {
     private List<String> milageMaxList = Arrays.asList("100000", "200000");
 
     @Test
-    public void checkingMannuallySetMilageFilterResult() {
+    public void checkMannuallySetMilageFilterResult() {
         carsPageContext
             .clickButtonAcceptCoockies()
             .fillInputMilageMin(milageMinList.get(0))
@@ -24,7 +24,7 @@ public class ValidateMilageFilter extends BaseTest {
     }
 
     @Test
-    public void checkingSelectedSetMilageFilterResult() {
+    public void checkSelectedSetMilageFilterResult() {
         carsPageContext
             .clickButtonAcceptCoockies()
             .setMilageMin(milageMinList.get(1))
