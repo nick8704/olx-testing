@@ -1,7 +1,6 @@
 package ua.olx.contexts;
 
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -13,7 +12,6 @@ import static ua.olx.constants.DefaultFieldsValues.*;
 public class CarsPageContext {
 
     WebDriverWait wait = new WebDriverWait(WebDriverHelper.getChromeDriver(), WebDriverHelper.getExplicitWait());
-    Actions actions = new Actions(WebDriverHelper.getChromeDriver());
     CarsPage carsPage = new CarsPage();
 
     /**
@@ -26,6 +24,11 @@ public class CarsPageContext {
         if(carsPage.buttonAcceptCoockies.isDisplayed()) {
             carsPage.buttonAcceptCoockies.click();
         }
+        return this;
+    }
+
+    public CarsPageContext clickButtonSearch() {
+        carsPage.buttonSearch.click();
         return this;
     }
 
@@ -55,6 +58,30 @@ public class CarsPageContext {
     public CarsPageContext fillInputPriceMax(String value) {
         carsPage.selectPriceMax.click();
         carsPage.inputPriceMax.sendKeys(value, Keys.ENTER);
+        return this;
+    }
+
+    public CarsPageContext fillInputMilageMin(String value) {
+        carsPage.selectMilageMin.click();
+        carsPage.inputMilageMin.sendKeys(value, Keys.ENTER);
+        return this;
+    }
+
+    public CarsPageContext setMilageMin(String value) {
+        carsPage.selectMilageMin.click();
+        carsPage.getMilageMinSelectItem(value).click();
+        return this;
+    }
+
+    public CarsPageContext fillInputMilageMax(String value) {
+        carsPage.selectMilageMax.click();
+        carsPage.inputMilageMax.sendKeys(value, Keys.ENTER);
+        return this;
+    }
+
+    public CarsPageContext setMilageMax(String value) {
+        carsPage.selectMilageMax.click();
+        carsPage.getMilageMaxSelectItem(value).click();
         return this;
     }
 
@@ -193,6 +220,12 @@ public class CarsPageContext {
         String expectedValue = "до " + value + " грн.";
         boolean result = wait.until(ExpectedConditions.textToBePresentInElement(carsPage.selectPriceMax, expectedValue));
         Assert.assertTrue(result, "Verifying select PRICE_MAX value:");
+        return this;
+    }
+
+    public CarsPageContext verifySearchResultListIsNotEmpty() {
+        boolean result = carsPage.searchResultCarsModelList.size() > 0;
+        Assert.assertTrue(result, "Verifying search result list is not empty:");
         return this;
     }
 

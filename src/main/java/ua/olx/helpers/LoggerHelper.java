@@ -43,7 +43,7 @@ public class LoggerHelper implements ITestListener{
         writeMessageToLogFile(getCurrentTime()
                 + " "
                 + "Start test: "
-                + result.getClass()
+                + result.getTestClass()
                 + " -> "
                 + result.getMethod().getMethodName()
                 + System.getProperty("line.separator"));
@@ -59,10 +59,10 @@ public class LoggerHelper implements ITestListener{
         failedTestsCount++;
         writeMessageToLogFile(getCurrentTime()
                 + " "
-                + result.getClass()
+                + result.getTestClass()
                 + " -> "
                 + result.getMethod().getMethodName()
-                + " FAILURE !!!"
+                + " FAILED !!!"
                 + System.getProperty("line.separator"));
     }
 
@@ -71,7 +71,7 @@ public class LoggerHelper implements ITestListener{
         skippedTestsCount++;
         writeMessageToLogFile(getCurrentTime()
                 + " "
-                + result.getClass()
+                + result.getTestClass()
                 + " -> "
                 + result.getMethod().getMethodName()
                 + " SKIPPED !!!"
@@ -83,7 +83,7 @@ public class LoggerHelper implements ITestListener{
         passedTestsCount++;
         writeMessageToLogFile(getCurrentTime()
                 + " "
-                + result.getClass()
+                + result.getTestClass()
                 + " -> "
                 + result.getMethod().getMethodName()
                 + " PASSED !!!"
@@ -120,4 +120,5 @@ public class LoggerHelper implements ITestListener{
                 + System.getProperty("line.separator")
                 + System.getProperty("line.separator");
     }
+
 }

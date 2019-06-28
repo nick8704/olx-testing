@@ -11,7 +11,7 @@ public class ValidatePriceFields extends BaseTest{
     private CarsPageContext carsPageContext = new CarsPageContext();
 
     private List<String> invalidValuesList = Arrays.asList("qwerty", "UTRI", "_bfnbg", "TYfhbJkvb");
-    private List<String> validValuesList       = Arrays.asList("100000", "54879");
+    private List<String> validValuesList = Arrays.asList("100000", "54879");
 
     @Test
     public void validateSelectPriceMinWithInvalidValue() {
@@ -27,7 +27,7 @@ public class ValidatePriceFields extends BaseTest{
             .verifySelectPriceMinValueIsDefault();
     }
 
-    @Test(dependsOnMethods = "validateSelectPriceMinWithInvalidValue")
+    @Test()
     public void validateSelectPriceMinWithValidValue() {
         carsPageContext
             .clickButtonAcceptCoockies()
@@ -39,7 +39,7 @@ public class ValidatePriceFields extends BaseTest{
             .clickIconClearSelectPriceMin();
     }
 
-    @Test(dependsOnMethods = "validateSelectPriceMinWithInvalidValue")
+    @Test()
     public void validateSelectPriceMaxWithInvalidValue() {
         carsPageContext
             .clickButtonAcceptCoockies()
@@ -51,6 +51,18 @@ public class ValidatePriceFields extends BaseTest{
             .verifySelectPriceMaxValueIsDefault()
             .fillInputPriceMax(invalidValuesList.get(3))
             .verifySelectPriceMaxValueIsDefault();
+    }
+
+    @Test()
+    public void validateSelectPriceMaxWithValidValue() {
+        carsPageContext
+                .clickButtonAcceptCoockies()
+                .fillInputPriceMax(validValuesList.get(0))
+                .verifySelectPriceMaxValue(validValuesList.get(0))
+                .clickIconClearSelectPriceMax()
+                .fillInputPriceMax(validValuesList.get(1))
+                .verifySelectPriceMaxValue(validValuesList.get(1))
+                .clickIconClearSelectPriceMax();
     }
 
 }

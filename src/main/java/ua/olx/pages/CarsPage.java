@@ -1,6 +1,9 @@
 package ua.olx.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import ua.olx.helpers.WebDriverHelper;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,6 +15,7 @@ import java.util.List;
 public class CarsPage {
 
     WebDriver driver = WebDriverHelper.getChromeDriver();
+    WebDriverWait wait = new WebDriverWait(driver, WebDriverHelper.getExplicitWait());
 
     public CarsPage() {
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, WebDriverHelper.getImplicitWait()), this);
@@ -74,8 +78,14 @@ public class CarsPage {
     @FindBy(xpath = "//fieldset//span[@data-default-label='Пробег от']")
     public WebElement selectMilageMin;
 
+    @FindBy(xpath = "//fieldset//ul[@id='param-grid-4']//input[@defaultval='от...']")
+    public WebElement inputMilageMin;
+
     @FindBy(xpath = "//fieldset//span[@data-default-label='Пробег до']")
     public WebElement selectMilageMax;
+
+    @FindBy(xpath = "//fieldset//ul[@id='param-grid-4']//input[@defaultval='до...']")
+    public WebElement inputMilageMax;
 
     @FindBy(xpath = "//fieldset//span[@data-default-label='Растаможена']")
     public WebElement selectCustomsCleared;
@@ -89,6 +99,20 @@ public class CarsPage {
     @FindBy(xpath = "//*[contains(@class, 'small suggestinput')]/li/a")
     public List<WebElement> brandsList;
 
+    @FindBy(xpath = "//tr//div[@class='space rel']//a")
+    public List<WebElement> searchResultCarsModelList;
+
     @FindBy(xpath = "//div[contains(@class, 'wrapper clr rel')]")
     public WebElement wrapper;
+
+    public WebElement getMilageMinSelectItem(String value) {
+        WebElement milageSelectItem = driver.findElement(By.xpath("(//fieldset//ul[@id='param-grid-4']//a[@data-value='" + value + "'])[1]"));
+        return wait.until(ExpectedConditions.visibilityOf(milageSelectItem));
+    }
+
+    public WebElement getMilageMaxSelectItem(String value) {
+        WebElement milageSelectItem = driver.findElement(By.xpath("(//fieldset//ul[@id='param-grid-4']//a[@data-value='" + value + "'])[2]"));
+        return wait.until(ExpectedConditions.visibilityOf(milageSelectItem));
+    }
+
 }
