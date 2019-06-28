@@ -9,7 +9,7 @@ import java.util.Properties;
 
 public class WebDriverHelper {
 
-    private static final int DEFAULT_WAIT = 15;
+    private static final int DEFAULT_WAIT = 5;
 
     private static WebDriver driver;
     private static int implicitWait;

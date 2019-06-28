@@ -20,6 +20,9 @@ public class CarsPage {
     @FindBy(xpath = "//div[@id='cookiesBar']/button")
     public WebElement buttonAcceptCoockies;
 
+    @FindBy(id = "search-submit")
+    public WebElement buttonSearch;
+
     @FindBy(xpath = "//fieldset//span[@data-default-label='Марка']")
     public WebElement selectBrand;
 
@@ -33,10 +36,22 @@ public class CarsPage {
     public WebElement selectFuel;
 
     @FindBy(xpath = "//fieldset//span[@data-default-label='Цена от']")
+    public WebElement selectPriceMin;
+
+    @FindBy(xpath = "//fieldset//ul[@id='param-grid-2']//input[@defaultval='от...']")
     public WebElement inputPriceMin;
 
+    @FindBy(xpath = "(//fieldset//ul[@id='param-grid-2']//input[@defaultval='от...']/../..//span)[2]")
+    public WebElement iconClearSelectPriceMin;
+
     @FindBy(xpath = "//fieldset//span[@data-default-label='Цена до']")
+    public WebElement selectPriceMax;
+
+    @FindBy(xpath = "//fieldset//ul[@id='param-grid-2']//input[@defaultval='до...']")
     public WebElement inputPriceMax;
+
+    @FindBy(xpath = "(//fieldset//ul[@id='param-grid-2']//input[@defaultval='до...']/../..//span)[2]")
+    public WebElement iconClearSelectPriceMax;
 
     @FindBy(xpath = "//fieldset//span[@data-default-label='Цвет']")
     public WebElement selectColor;
@@ -45,10 +60,10 @@ public class CarsPage {
     public WebElement selectTransmission;
 
     @FindBy(xpath = "//fieldset//span[@data-default-label='Год выпуска от']")
-    public WebElement inputYearMin;
+    public WebElement selectYearMin;
 
     @FindBy(xpath = "//fieldset//span[@data-default-label='Год выпуска до']")
-    public WebElement inputYearMax;
+    public WebElement selectYearMax;
 
     @FindBy(xpath = "//fieldset//span[@data-default-label='Состояние машины']")
     public WebElement selectCondition;
@@ -57,20 +72,23 @@ public class CarsPage {
     public WebElement selectOptions;
 
     @FindBy(xpath = "//fieldset//span[@data-default-label='Пробег от']")
-    public WebElement inputMilageMin;
+    public WebElement selectMilageMin;
 
     @FindBy(xpath = "//fieldset//span[@data-default-label='Пробег до']")
-    public WebElement inputMilageMax;
+    public WebElement selectMilageMax;
 
     @FindBy(xpath = "//fieldset//span[@data-default-label='Растаможена']")
     public WebElement selectCustomsCleared;
 
     @FindBy(xpath = "//fieldset//span[@data-default-label='Объем двигателя от']")
-    public WebElement inputEngineMin;
+    public WebElement selectEngineMin;
 
     @FindBy(xpath = "//fieldset//span[@data-default-label='Объем двигателя до']")
-    public WebElement inputEngineMax;
+    public WebElement selectEngineMax;
 
     @FindBy(xpath = "//*[contains(@class, 'small suggestinput')]/li/a")
     public List<WebElement> brandsList;
+
+    @FindBy(xpath = "//div[contains(@class, 'wrapper clr rel')]")
+    public WebElement wrapper;
 }

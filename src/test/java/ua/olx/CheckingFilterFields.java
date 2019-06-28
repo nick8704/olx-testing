@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class CheckingFilterFields extends BaseTest {
 
-    CarsPageContext carsPageContext = new CarsPageContext();
+    private CarsPageContext carsPageContext = new CarsPageContext();
 
     @Test
     public void checkingDefaultValuesInFilterFields() {
@@ -15,19 +15,19 @@ public class CheckingFilterFields extends BaseTest {
             .verifySelectDistrictValueIsDefault()
             .verifySelectTypeValueIsDefault()
             .verifySelectFuelValueIsDefault()
-            .verifyInputPriceMinValueIsDefault()
-            .verifyInputPriceMaxValueIsDefault()
+            .verifySelectPriceMinValueIsDefault()
+            .verifySelectPriceMaxValueIsDefault()
             .verifySelectColorValueIsDefault()
             .verifySelectTransmissionValueIsDefault()
-            .verifyInputYearMinValueIsDefault()
-            .verifyInputYearMaxValueIsDefault()
+            .verifySelectYearMinValueIsDefault()
+            .verifySelectYearMaxValueIsDefault()
             .verifySelectConditionValueIsDefault()
             .verifySelectOptionsValueIsDefault()
-            .verifyInputMilageMinValueIsDefault()
-            .verifyInputMilageMaxValueIsDefault()
+            .verifySelectMilageMinValueIsDefault()
+            .verifySelectMilageMaxValueIsDefault()
             .verifySelectCustomsClearedValueIsDefault()
-            .verifyInputEngineMinValueIsDefault()
-            .verifyInputEngineMaxValueIsDefault();
+            .verifySelectEngineMinValueIsDefault()
+            .verifySelectEngineMaxValueIsDefault();
     }
 
 }

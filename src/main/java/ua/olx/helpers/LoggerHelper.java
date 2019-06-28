@@ -14,10 +14,10 @@ public class LoggerHelper implements ITestListener{
 
     /**The file will be created in project directory automatically*/
     private static final String FILE_NAME = "olxLog.log";
-    private int testsCount = 0;
-    private int passedTestsCount = 0;
-    private int failedTestsCount = 0;
-    private int skippedTestsCount = 0;
+    private int testsCount;
+    private int passedTestsCount;
+    private int failedTestsCount;
+    private int skippedTestsCount;
 
     @Override
     public void onStart(ITestContext arg0) {
@@ -108,13 +108,13 @@ public class LoggerHelper implements ITestListener{
     }
 
     private String getStatistic() {
-        return "| TESTS: "
+        return "|  TESTS:"
                 + testsCount
-                + " |  PASSED :"
+                + " |  PASSED:"
                 + passedTestsCount
-                + " |  FAILED :"
+                + " |  FAILED:"
                 + failedTestsCount
-                + " |  SKIPPED :"
+                + " |  SKIPPED:"
                 + skippedTestsCount
                 + " |"
                 + System.getProperty("line.separator")

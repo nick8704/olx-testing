@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
+import java.util.concurrent.TimeUnit;
+
 import static ua.olx.constants.Url.URL;
 
 public class BaseTest {
@@ -15,6 +17,7 @@ public class BaseTest {
     @BeforeSuite
     public void setWebDriver() {
         driver = WebDriverHelper.getChromeDriver();
+        driver.manage().timeouts().implicitlyWait(WebDriverHelper.getImplicitWait(), TimeUnit.SECONDS);
         driver.manage().window().setSize(new Dimension(500, 500));
     }
 
