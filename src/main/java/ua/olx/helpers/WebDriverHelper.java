@@ -2,6 +2,7 @@ package ua.olx.helpers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -17,12 +18,20 @@ public class WebDriverHelper {
 
     static  {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver75");
+        System.setProperty("webdriver.gecko.driver", "src/main/resources/drivers/geckodriver024");
         initializeWaitsFromPropertiesFile();
     }
 
     public static WebDriver getChromeDriver() {
         if (driver == null) {
-            driver = new ChromeDriver();
+            switch (getDriverNameProperty()) {
+                case "chrome":
+                    driver = new ChromeDriver();
+                    break;
+                case "gecko":
+                    driver = new FirefoxDriver();
+                    break;
+            }
         }
         return driver;
     }
@@ -39,6 +48,19 @@ public class WebDriverHelper {
         }
     }
 
+    private static String getDriverNameProperty() {
+        String webDriverName;
+        Properties properties = new Properties();
+        try {
+            FileInputStream inputStream = new FileInputStream("WebDriver.properties");
+            properties.load(inputStream);
+            webDriverName = properties.getProperty("driver");
+        } catch (IOException e) {
+            webDriverName = setDefaultWebDriver();
+        }
+        return webDriverName;
+    }
+
     private static int convertingStringToInt(String value) {
         int result;
         try {
@@ -52,6 +74,10 @@ public class WebDriverHelper {
     private static void setDefaultWait() {
         implicitWait = DEFAULT_WAIT;
         explicitWait= DEFAULT_WAIT;
+    }
+
+    private static String setDefaultWebDriver() {
+        return "chrome";
     }
 
     public static int getImplicitWait() {
