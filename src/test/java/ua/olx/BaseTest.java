@@ -11,11 +11,10 @@ import static ua.olx.constants.Url.URL;
 
 public class BaseTest {
 
-    private WebDriver driver;
+    private WebDriver driver = WebDriverHelper.getChromeDriver();
 
     @BeforeMethod
     public void openCarsPage() {
-        driver = WebDriverHelper.getChromeDriver();
         driver.manage().timeouts().implicitlyWait(WebDriverHelper.getImplicitWait(), TimeUnit.SECONDS);
         driver.manage().window().setSize(new Dimension(500, 500));
         driver.get(URL);
