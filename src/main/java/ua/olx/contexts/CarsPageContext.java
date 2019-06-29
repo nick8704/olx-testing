@@ -32,6 +32,16 @@ public class CarsPageContext {
         return this;
     }
 
+    public CarsPageContext clickSelectTransmission() {
+        carsPage.selectTransmission.click();
+        return this;
+    }
+
+    public CarsPageContext checkCheckboxInSelectTransmission(String transmissionType) {
+        carsPage.getLabelSelectTransmissionCheckbox(transmissionType).click();
+        return this;
+    }
+
     public CarsPageContext clickIconClearSelectPriceMin() {
         wait.until(ExpectedConditions.elementToBeClickable(carsPage.iconClearSelectPriceMin)).click();
         carsPage.selectPriceMin.click();
@@ -226,6 +236,18 @@ public class CarsPageContext {
     public CarsPageContext verifySearchResultListIsNotEmpty() {
         boolean result = carsPage.searchResultCarsModelList.size() > 0;
         Assert.assertTrue(result, "Verifying search result list is not empty:");
+        return this;
+    }
+
+    public CarsPageContext verifySelectTransmissionCheckboxAllIsChecked(boolean expected) {
+        boolean actual = carsPage.getSelectTransmissionCheckboxAll().getAttribute("checked") != null;
+        Assert.assertEquals(actual, expected, "Verify that checkbox 'All' in transmission select is checked:");
+        return this;
+    }
+
+    public CarsPageContext verifySelectTransmissionCheckboxIsChecked(String transmissionType, boolean expected) {
+        boolean actual = carsPage.getInputSelectTransmissionCheckbox(transmissionType).getAttribute("checked") != null;
+        Assert.assertEquals(actual, expected, "Verify that checkbox '" + transmissionType + "' in transmission select is checked:");
         return this;
     }
 

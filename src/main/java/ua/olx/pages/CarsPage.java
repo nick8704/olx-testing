@@ -115,4 +115,19 @@ public class CarsPage {
         return wait.until(ExpectedConditions.visibilityOf(milageSelectItem));
     }
 
+    public WebElement getLabelSelectTransmissionCheckbox(String transmissionType) {
+        WebElement transmissionCheckbox = driver.findElement(By.xpath("//div[contains(@class,'transmission_type')]//label[@data-text='" + transmissionType + "']"));
+        return wait.until(ExpectedConditions.visibilityOf(transmissionCheckbox));
+    }
+
+    public WebElement getInputSelectTransmissionCheckbox(String transmissionType) {
+        WebElement transmissionCheckbox = driver.findElement(By.xpath("//div[contains(@class,'transmission_type')]//label[@data-text='" + transmissionType + "']/..//input"));
+        return wait.until(ExpectedConditions.visibilityOf(transmissionCheckbox));
+    }
+
+    public WebElement getSelectTransmissionCheckboxAll() {
+        WebElement transmissionCheckboxAll = driver.findElement(By.xpath("//input[contains(@id,'all-filter_enum_transmission_type')]"));
+        return wait.until(ExpectedConditions.visibilityOf(transmissionCheckboxAll));
+    }
+
 }

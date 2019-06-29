@@ -14,6 +14,7 @@
             <class name="ua.olx.ValidatePriceFields"/>
             <class name="ua.olx.ValidateMilageFilter"/>
             <class name="ua.olx.ValidatePriceFilter"/>
+            <class name="ua.olx.ValidateTransmissionCheckbox"/>
         </classes>
 
     </test>
