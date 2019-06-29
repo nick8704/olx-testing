@@ -28,7 +28,8 @@ public class CarsPageContext {
     }
 
     public CarsPageContext clickButtonSearch() {
-        carsPage.buttonSearch.click();
+        wait.until(ExpectedConditions.elementToBeClickable(carsPage.buttonSearch)).click();
+        wait.until(ExpectedConditions.visibilityOf(carsPage.tabAllInSearchResultList));
         return this;
     }
 

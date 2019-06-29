@@ -99,6 +99,9 @@ public class CarsPage {
     @FindBy(xpath = "//*[contains(@class, 'small suggestinput')]/li/a")
     public List<WebElement> brandsList;
 
+    @FindBy(xpath = "//div[@class='wrapper clr']//span[@class='fbold']")
+    public WebElement tabAllInSearchResultList;
+
     @FindBy(xpath = "//tr//div[@class='space rel']//a")
     public List<WebElement> searchResultCarsModelList;
 

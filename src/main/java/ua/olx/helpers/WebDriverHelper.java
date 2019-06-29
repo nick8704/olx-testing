@@ -30,7 +30,7 @@ public class WebDriverHelper {
     private static void initializeWaitsFromPropertiesFile() {
         Properties properties = new Properties();
         try {
-            FileInputStream inputStream = new FileInputStream("wait.properties");
+            FileInputStream inputStream = new FileInputStream("WebDriver.properties");
             properties.load(inputStream);
             implicitWait = convertingStringToInt(properties.getProperty("implicitWait"));
             explicitWait = convertingStringToInt(properties.getProperty("explicitWait"));
