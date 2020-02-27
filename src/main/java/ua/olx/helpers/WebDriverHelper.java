@@ -17,7 +17,7 @@ public class WebDriverHelper {
     private static int explicitWait;
 
     static  {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver75");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver80");
         System.setProperty("webdriver.gecko.driver", "src/main/resources/drivers/geckodriver024");
         initializeWaitsFromPropertiesFile();
     }
