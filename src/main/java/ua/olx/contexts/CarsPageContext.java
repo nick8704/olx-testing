@@ -11,7 +11,7 @@ import static ua.olx.constants.DefaultFieldsValues.*;
 
 public class CarsPageContext {
 
-    WebDriverWait wait = new WebDriverWait(WebDriverHelper.getChromeDriver(), WebDriverHelper.getExplicitWait());
+    WebDriverWait wait = new WebDriverWait(WebDriverHelper.getWebDriver(), WebDriverHelper.getExplicitWait());
     CarsPage carsPage = new CarsPage();
 
     /**

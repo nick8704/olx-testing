@@ -14,7 +14,7 @@ import java.util.List;
 
 public class CarsPage {
 
-    WebDriver driver = WebDriverHelper.getChromeDriver();
+    WebDriver driver = WebDriverHelper.getWebDriver();
     WebDriverWait wait = new WebDriverWait(driver, WebDriverHelper.getExplicitWait());
 
     public CarsPage() {

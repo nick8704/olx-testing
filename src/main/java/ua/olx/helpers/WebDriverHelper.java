@@ -22,7 +22,7 @@ public class WebDriverHelper {
         initializeWaitsFromPropertiesFile();
     }
 
-    public static WebDriver getChromeDriver() {
+    public static WebDriver getWebDriver() {
         if (driver == null) {
             switch (getDriverNameProperty()) {
                 case "chrome":

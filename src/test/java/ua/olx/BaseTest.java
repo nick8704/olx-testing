@@ -11,7 +11,7 @@ import static ua.olx.constants.Url.URL;
 
 public class BaseTest {
 
-    private WebDriver driver = WebDriverHelper.getChromeDriver();
+    private WebDriver driver = WebDriverHelper.getWebDriver();
 
     @BeforeMethod
     public void openCarsPage() {
